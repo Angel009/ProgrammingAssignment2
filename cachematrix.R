@@ -44,11 +44,12 @@ cacheSolve <- function(x, ...) {
   cache <- x$get_inverse()
   
   if(!is.null(cache)) {
-    msg("CACHED DATA")
+    message("CACHED DATA")
     return(cache)
   }
   
   data <- x$get()
+  ##solve can be used because 'data' has a matrix format
   cache <- solve(data, ...)
   
   x$set_matrix(cache)
